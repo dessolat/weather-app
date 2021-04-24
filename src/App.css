@@ -1,38 +1,141 @@
-.App {
+h2 {
+  border-radius: 15px;
+  background-color: rgba(145, 252, 130, 0.6);
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  padding: 3px 15px;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 3px 3px 3px gray;
+  margin: 0 auto;
+	margin-top: 20px;
+	width: 25%;
+}
+
+sup {
+	border-radius: 50%;
+  background-color: rgba(145, 252, 130, 0.6);
+  padding: 2px;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 1px 1px 1px gray;
+}
+
+.wrapper {
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 800px;
+  height: 100px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-field {
+  border: none;
+  border-radius: 15px;
+  background-color: rgba(145, 252, 130, 0.6);
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  outline: none;
+  padding: 10px 15px;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.today {
+  margin-top: 20px;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.today__header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px 40px;
+}
+
+.today__header-today,
+.today__body-temp,
+.today__body-feeltemp,
+.today__body-conditions {
+  text-shadow: 3px 3px 3px gray;
+}
+
+.today__header-title {
+  color: white;
+  font-size: 26px;
+}
+
+.today__body {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px 0;
+  text-align: center;
+}
+
+.today__body-temp {
+  font-size: 48px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.today__body-feeltemp {
+  font-size: 22px;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.today__body-conditions {
+  color: white;
+  font-size: 38px;
+}
+
+.week {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.week__day {
+  width: 92px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.week__day-header {
+  padding: 7px 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  color: white;
+  text-shadow: 1px 1px 1px gray;
+}
+
+.week__day-body {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-bottom: 15px;
+  text-shadow: 1px 1px 1px gray;
+  background-color: rgba(255, 255, 255, 0.4);
+  align-items: center;
+}
+
+.week__day-image {
+  height: 65px;
+  width: 65px;
 }
