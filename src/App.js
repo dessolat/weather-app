@@ -5,25 +5,7 @@ import Week from './components/Week';
 
 import './App.css';
 
-const MONTHS = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
-
-const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
 function App() {
-  const [input, setInput] = useState('');
   const [userLocation, setUserLocation] = useState({
     lat: null,
     long: null
@@ -37,7 +19,7 @@ function App() {
 
   useEffect(() => {
     const { lat, long } = userLocation;
-    lat !== null && long !== null && getWeather(null, true);
+    lat !== null && long !== null && getWeather('', true);
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userLocation]);
 
@@ -58,11 +40,8 @@ function App() {
     }
   };
 
-  const handleInput = e => setInput(e.target.value);
-
-  const getWeather = async (e, isCurrentLocation) => {
-    e && e.preventDefault();
-
+  const getWeather = async (input, isCurrentLocation = false) => {
+    
     const API_Key = '529c3904f06a70b46ab233d16d1f4eb5';
     const URL = 'https://api.openweathermap.org/data/2.5/weather';
 
@@ -98,20 +77,20 @@ function App() {
 
   return (
     <div className='wrapper'>
-      <InputForm getWeather={getWeather} handleInput={handleInput} input={input} />
+      <InputForm getWeather={getWeather} />
 
       {selectedWeatherData.week && (
         <>
-          <Today weatherData={selectedWeatherData} DAYS={DAYS} MONTHS={MONTHS} />
-          <Week weekData={selectedWeatherData.week} DAYS={DAYS} />
+          <Today weatherData={selectedWeatherData} />
+          <Week weekData={selectedWeatherData.week} />
         </>
       )}
 
       {userWeatherData.week && (
         <>
           <h2>Your location</h2>
-					<Today weatherData={userWeatherData} DAYS={DAYS} MONTHS={MONTHS} />
-          <Week weekData={userWeatherData.week} DAYS={DAYS} />
+					<Today weatherData={userWeatherData} />
+          <Week weekData={userWeatherData.week} />
         </>
       )}
     </div>

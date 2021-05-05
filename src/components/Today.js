@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
-const Today = ({ weatherData, DAYS, MONTHS }) => {
+const Today = ({ weatherData }) => {
   const { date, sys, name, weather, main } = weatherData;
-
+	const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const MONTHS = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
+	
   return (
     <div className='today'>
       <div className='today__header'>
@@ -17,7 +33,7 @@ const Today = ({ weatherData, DAYS, MONTHS }) => {
       <div className='today__body'>
         <img
           className='today__body-image'
-          src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
           alt=''
         />
         <div className='today__body-temps'>
@@ -32,4 +48,12 @@ const Today = ({ weatherData, DAYS, MONTHS }) => {
   );
 };
 
-export default Today;
+Today.propTypes = {
+	date: PropTypes.instanceOf(Date),
+	sys: PropTypes.object, 
+	name: PropTypes.string, 
+	weather: PropTypes.array, 
+	main: PropTypes.object
+}
+
+export default memo(Today);

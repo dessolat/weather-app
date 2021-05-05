@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { memo } from 'react';
 import WeekDay from './WeekDay';
+import PropTypes from 'prop-types';
 
-const Week = ({ weekData, DAYS }) => (
+const Week = ({ weekData }) => (
   <div className='week'>
     {weekData.daily.map(day => (
-      <WeekDay key={day.dt} dayData={day} DAYS={DAYS} timezone={weekData.timezone_offset} />
+      <WeekDay key={day.dt} dayData={day} timezone={weekData.timezone_offset} />
     ))}
   </div>
 );
 
-export default Week;
+Week.propTypes = {
+  weekData: PropTypes.object.isRequired
+};
+
+export default memo(Week);
